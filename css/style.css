@@ -9,6 +9,19 @@ h1 {
     text-align: center;
 }
 
+.name {
+    text-align: center;
+}
+
+.sendBtn {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sendBtn:hover {
+   background-color: #eee;
+}
+
 ul {
     list-style: none;
     padding: 0;

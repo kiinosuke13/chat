@@ -47,22 +47,43 @@ var vm = new Vue ({
             this.yourTalks.push(message2);
             this.otherMessage = ''
         },
-        // deleteItem: function(index) {
-        //     if (confirm('are you sure?')) {
-        //         this.myTalks.splice(index, 1);
-        //         this.yourTalks.splice(index, 1);
-        //     }
-        // },
-    },
-        computed: {
-            remaining: function() {
-            return this.myTalks.filter(function(myTalk) {
-                    return !myTalk.isDone;
-                });
+        deleteItem: function(index) {
+            if (confirm('are you sure?')) {
+                this.myTalks.splice(index, 1);
             }
+        },     
+        purge: function() {
+            if (!confirm('delete finished?')) {
+                return; 
+            }
+                this.myTalks = this.remaining;
+            },
 
-        }
+        purge2: function() {
+            if (!confirm('delete finished?')) {
+                return; 
+            }
+                this.yourTalks = this.remaining;
+            },
+    },        
+    computed: {
+        remaining: function() {
+        return this.myTalks.filter(function(myTalk) {
+                return !myTalk.isDone;
+            });
+        },
+    }
 });
-}
+}     
 
-    
+// deleteItem: function(index) {
+//     if (confirm('are you sure?')) {
+//      this.todos.splice(index, 1);
+//     }
+// },
+// purge: function() {
+//     if (!confirm('delete finished?')) {
+//      return;
+//     }
+//     this.todos = this.remaining;
+//     }

@@ -4,38 +4,43 @@
         <meta charset="utf-8">
         <title>My Vue App</title>
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     </head>
     <body>
         <section id="chat">
-            <h1>
+            <h1> 
                 チャット
             </h1>
             <div class="container">
                 <!-- myChat -->
                 <div class="myChat">
+                    <p class="name">あなたのチャット</p>
+                    <button @click="purge">チェックした会話を消す</button>
                     <ul id="myFild"> 
                         <li v-for="myTalk in myTalks">
+                            <input type="checkbox" v-model="myTalk.isDone">
                             <span :class="{done: myTalk.isDOne}">{{myTalk.title}}</span>
-                            <!-- <span @click="deleteItem(index)" class="command" v-if="">[x]</span> -->
-                        </li>
+                        </li> 
                     </ul>            
                     <form @submit.prevent="addMymessage">
                         <input type="text" v-model="myMessage" placeholder="あなたのチャット">
-                        <input type="submit" value="送信">
+                        <input type="submit" value="送信" class="sendBtn">
                     </form>
                 </div>
 
                 <!-- yourChat -->
-                <div class="yourChat">  
+                <div class="yourChat">
+                    <p class="name">相手のチャット</p>
+                    <button @click="purge2">チェックした会話を消す</button>
                     <ul id="yourFild">
                         <li v-for="yourTalk in yourTalks">
+                            <input type="checkbox" v-model="yourTalk.isDOne">
                             <span :class="{done: yourTalk.isDOne}">{{yourTalk.title}}</span>
-                            <!-- <span @click="deleteItem(index)" class="command">[x]</span> -->
                         </li>
                     </ul>
                     <form @submit.prevent="addOthermessage">
                         <input type="text" v-model="otherMessage" placeholder="相手のチャット">
-                        <input type="submit" value="送信">    
+                        <input type="submit" value="送信" class="sendBtn">    
                     </form>                
                 </div>
             </div>
@@ -58,7 +63,7 @@
                 <input type="text" v-model="newItem">
                 <input type="submit" value="Add">
             </form> -->
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
         <script src="js/main.js"></script>
+        <script src="js/vue.min.js"></script>
     </body>
 </html> 
