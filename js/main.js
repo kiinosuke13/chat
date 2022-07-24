@@ -48,12 +48,12 @@
                 this.otherMessage = ''
             },
             deleteItem: function(index) {
-                if (confirm('are you sure?')) {
+                if (confirm('本当に消してもいいですか？')) {
                     this.myTalks.splice(index, 1);
                 }
             },     
             deleteItem2: function(index) {
-                if (confirm('are you sure?')) {
+                if (confirm('本当に消してもいいですか？')) {
                     this.yourTalks.splice(index, 1);
                 }
             },     

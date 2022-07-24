@@ -50,3 +50,10 @@ li {
     background-color: aquamarine;
     padding-top: 10px;
 }
+
+.command {
+    font-size: 12px;
+    color: blue;
+    cursor: pointer;
+    user-select: none;
+}
