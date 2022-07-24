@@ -15,11 +15,11 @@
                 <!-- myChat -->
                 <div class="myChat">
                     <p class="name">あなたのチャット</p>
-                    <button @click="purge">チェックした会話を消す</button>
+                    
                     <ul id="myFild"> 
-                        <li v-for="myTalk in myTalks">
-                            <input type="checkbox" v-model="myTalk.isDone">
+                        <li v-for="(myTalk,index) in myTalks">
                             <span :class="{done: myTalk.isDOne}">{{myTalk.title}}</span>
+                            <span @click="deleteItem(index)">[X]</span>
                         </li> 
                     </ul>            
                     <form @submit.prevent="addMymessage">
@@ -31,11 +31,10 @@
                 <!-- yourChat -->
                 <div class="yourChat">
                     <p class="name">相手のチャット</p>
-                    <button @click="purge2">チェックした会話を消す</button>
                     <ul id="yourFild">
-                        <li v-for="yourTalk in yourTalks">
-                            <input type="checkbox" v-model="yourTalk.isDOne">
+                        <li v-for="(yourTalk,index) in yourTalks">
                             <span :class="{done: yourTalk.isDOne}">{{yourTalk.title}}</span>
+                            <span @click="deleteItem2(index)">[X]</span>
                         </li>
                     </ul>
                     <form @submit.prevent="addOthermessage">
