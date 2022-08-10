@@ -14,33 +14,38 @@
             <div class="container">
                 <!-- myChat -->
                 <div class="myChat">
-                    <p class="name">あなたのチャット</p>
-                    
-                    <ul id="myFild"> 
-                        <li v-for="(myTalk,index) in myTalks">
-                            <span :class="{done: myTalk.isDOne}">{{myTalk.title}}</span>
-                            <span @click="deleteItem(index)" class="command">[X]</span>
-                        </li> 
-                    </ul>            
-                    <form @submit.prevent="addMymessage">
-                        <input type="text" v-model="myMessage" placeholder="あなたのチャット">
-                        <input type="submit" value="送信" class="sendBtn">
-                    </form>
-                </div>
-
-                <!-- yourChat -->
-                <div class="yourChat">
-                    <p class="name">相手のチャット</p>
-                    <ul id="yourFild">
-                        <li v-for="(yourTalk,index) in yourTalks">
-                            <span :class="{done: yourTalk.isDOne}">{{yourTalk.title}}</span>
-                            <span @click="deleteItem2(index)" class="command">[X]</span>
+                    <!-- <p class="name">あなたのチャット</p> -->
+                    <ul>
+                        <li id="myFild">
+                            <div class="pic">
+                                <img src="img/cat.png" alt="">
+                            </div>
+                            <p class="name">あなたのチャット</p> 
+                            <div v-for="(myTalk,index) in myTalks" class="text">
+                                <span :class="{done: myTalk.isDOne}">{{myTalk.title}}</span>
+                                <span @click="deleteItem(index)" class="command">[X]</span>
+                            </div>
+                            <form @submit.prevent="addMymessage">
+                                <input type="text" v-model="myMessage" placeholder="あなたのチャット">
+                                <input type="submit" value="送信" class="sendBtn">
+                            </form> 
                         </li>
-                    </ul>
-                    <form @submit.prevent="addOthermessage">
-                        <input type="text" v-model="otherMessage" placeholder="相手のチャット">
-                        <input type="submit" value="送信" class="sendBtn">    
-                    </form>                
+
+                        <li id="yourFild">                        
+                            <div class="pic">
+                                <img src="img/dog.png" alt="">
+                            </div>
+                            <p class="name">相手のチャット</p> 
+                            <div v-for="(yourTalk,index) in yourTalks" class="text">
+                                <span :class="{done: yourTalk.isDOne}">{{yourTalk.title}}</span>
+                                <span @click="deleteItem2(index)" class="command">[X]</span>
+                            </div>
+                            <form @submit.prevent="addOthermessage">
+                                <input type="text" v-model="otherMessage" placeholder="相手のチャット">
+                                <input type="submit" value="送信" class="sendBtn">    
+                            </form>  
+                        </li>
+                    </ul>            
                 </div>
             </div>
         </section>
