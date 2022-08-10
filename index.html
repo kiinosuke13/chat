@@ -26,7 +26,7 @@
                                 <span @click="deleteItem(index)" class="command">[X]</span>
                             </div>
                             <form @submit.prevent="addMymessage">
-                                <input type="text" v-model="myMessage" placeholder="あなたのチャット">
+                                <input type="text" v-model="myMessage" placeholder="あなたのチャット" class="textbox">
                                 <input type="submit" value="送信" class="sendBtn">
                             </form> 
                         </li>
@@ -41,7 +41,7 @@
                                 <span @click="deleteItem2(index)" class="command">[X]</span>
                             </div>
                             <form @submit.prevent="addOthermessage">
-                                <input type="text" v-model="otherMessage" placeholder="相手のチャット">
+                                <input type="text" v-model="otherMessage" placeholder="相手のチャット" class="textbox">
                                 <input type="submit" value="送信" class="sendBtn">    
                             </form>  
                         </li>
